@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id',  validateActionId, (req, res) => {
-    id = req.params.id
+    const id = req.params.id
     
     actionDb.get(id)
     .then(action => {
@@ -24,20 +24,19 @@ router.get('/:id',  validateActionId, (req, res) => {
 });
 
 router.post('/' ,  validateNewAction, (req, res) => {
-    
-    newAction = req.body
+    const newAction = req.body
 
     actionDb.insert(newAction)
     .then(action => {
         res.status(201).json(action)
     })
-    .catch(err => res.status(500).json("internal database error"))
+    .catch(err => res.status(500).json({message:"database could not add action"}))
 } 
 )
 
 router.put('/:id', validateActionId, validateNewAction, (req, res) => {
-    id = req.params.id
-    changes = req.body
+    const id = req.params.id
+    const changes = req.body
 
     actionDb.update(id, changes)
     .then(action => {
@@ -47,7 +46,7 @@ router.put('/:id', validateActionId, validateNewAction, (req, res) => {
 })
 
 router.delete('/:id' ,validateActionId, (req, res) => {
-    id = req.params.id
+    const id = req.params.id
 
     actionDb.remove(id)
     .then(action => {
@@ -57,7 +56,7 @@ router.delete('/:id' ,validateActionId, (req, res) => {
 })
 
 function validateActionId(req, res, next) {
-    id = req.params.id
+    const id = req.params.id
     
     actionDb.get(id)
     .then(action => {
@@ -72,7 +71,7 @@ function validateActionId(req, res, next) {
 }
 
 function validateNewAction(req, res, next){
-    newAction = req.body
+    const newAction = req.body
 
     if(!newAction.notes || !newAction.description || !newAction.project_id){
         res.status(400).json({message: "Notes, description, and project_id are required fields"})
