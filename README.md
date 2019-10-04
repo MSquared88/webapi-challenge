@@ -32,7 +32,7 @@ Express Middleware
 
 - [ ] Describe Middleware?
 
-Middleware are functions that handle aspects of our application. Making thing like authentication and logging easy.
+Middleware are functions that handle aspects of our application. Making things like authentication and logging easy.
 
 - [ ] Describe a Resource?
 
