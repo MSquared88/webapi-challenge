@@ -17,7 +17,7 @@ server.get('/', (req, res) => {
 
 //routes
 server.use('/api/projects', projectsRoute)
-server.use('/api/projects/actions', actionsRoute)
+server.use('/api/actions', actionsRoute)
 
 
 

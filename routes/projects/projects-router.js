@@ -25,7 +25,13 @@ router.get('/:id', validateProjectId, (req, res) => {
 })
 
 router.get('/:id/actions', validateProjectId, (req, res) => {
-    
+    const id = req.params.id
+
+    projectsDb.getProjectActions(id)
+    .then(actions => {
+        res.status(200).json(actions)
+    })
+    .catch(err => res.status(500).json({message: "database could not get actions"}))
 })
 
 router.post('/', validateNewProject, (req, res) => {
