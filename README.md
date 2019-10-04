@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Server-Side Routing.
+Express Middleware
+
+
 - [ ] Describe Middleware?
+
+Middleware are functions that handle aspects of our application. Making thing like authentication and logging easy.
 
 - [ ] Describe a Resource?
 
+A resource is data that we get back from a database.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+It can return a status code 200.
+
 - [ ] How can we partition our application into sub-applications?
+
+By using routes and diffrent endpoints 
 
 ## Project Setup
 
